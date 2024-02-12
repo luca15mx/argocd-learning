@@ -1,17 +1,18 @@
+# nginx.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: nginx
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: "https://gitlab.com/luca15mx/argocd-learning.git"
-    path: argo-cd
+    repoURL: 'https://gitlab.com/luca15mx/argocd-learning.git'
+    path: manifests
     targetRevision: main
   destination:
-    server: "https://kubernetes.default.svc"
-    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+    namespace: default
   syncPolicy:
     automated:
       selfHeal: true
