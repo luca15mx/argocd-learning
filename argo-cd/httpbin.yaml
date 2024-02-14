@@ -14,10 +14,10 @@ spec:
       values: |
         service: 
           type: NodePort
-    destination:
-      server: 'https://kubernetes.default.svc'
-      namespace: default
-    syncPolicy:
-      automated:
-        selfHeal: true
-        prune: true  
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true  
