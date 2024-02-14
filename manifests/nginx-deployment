@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -6,15 +6,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: nginx-deployment
+      app: nginx
   replicas: 6
   template:
     metadata:
       labels:
-        editor: nginx-deployment
+        editor: nginx
+        app: nginx
     spec:
       containers:
-      - name: nginx-deployment
+      - name: nginx
         image: nginx
         ports:
           - containerPort: 80
