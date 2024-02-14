@@ -8,11 +8,11 @@ spec:
   ingressClassName: nginx
   rules:
   - http:
-    paths:
-    - path: /caddy
-      pathType: Prefix
-      backend:
-        service:
-          name: caddy-service
-          port:
-            name: http
+      paths:
+      - path: /caddy
+        pathType: Prefix
+        backend:
+          service:
+            name: caddy-service
+            port:
+              name: http
