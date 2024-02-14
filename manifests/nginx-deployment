@@ -2,18 +2,19 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  namespace: tuto
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-deployment
   replicas: 6
   template:
     metadata:
       labels:
-        editor: nginx
+        editor: nginx-deployment
     spec:
       containers:
-      - name: nginx
+      - name: nginx-deployment
         image: nginx
         ports:
           - containerPort: 80
