@@ -1,4 +1,4 @@
-# argocd-project.yaml
+# nginx.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/luca15mx/argocd-learning.git'
-    path: argo-cd
+    path: manifests
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
