@@ -1,25 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    argocd.argoproj.io/instance: apiservice
   name: busybox-deployment
-  spec:
-    replicas: 1
+  namespace: default
   selector:
     matchLabels:
       app: busybox
+  spec:
+    replicas: 1
   template:
     metadata:
       labels:
         app: busybox
     spec:
       containers:
-      - name: busybox
-        image: busybox
-        command: ["sh", "-c", "while true; do sleep 3600; done"]
+        - command:
+            - sh
+            - '-c'
+            - while true; do sleep 3600; done
+          image: busybox
+          name: busybox
       env:
-      - name: APIKEY
-        valueFrom:
-          secretKeyRef:
-            name: appsecret
-          key: apikey
+        - name: APIKEY
+          valueFrom:
+            key: apikey
+            secretKeyRef:
+              name: appsecret
       restartPolicy: Always
