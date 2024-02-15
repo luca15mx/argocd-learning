@@ -1,0 +1,19 @@
+# argocd-project.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apiservice
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/luca15mx/argocd-learning.git'
+    path: apiservice
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
