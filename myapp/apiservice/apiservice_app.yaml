@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/luca15mx/argocd-learning.git'
-    path: apiservice
+    path: myapp/apiservice
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
